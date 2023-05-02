@@ -10,7 +10,7 @@ class App extends Component{
     };
   }
   render(){
-    const name = this.state.name;
+    const { name } = this.state;
     return (
       <div className="App">
         <header className="App-header">
