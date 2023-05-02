@@ -3,13 +3,20 @@ import './App.css';
 import { Component } from 'react';
 
 class App extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name: 'Ezequiel da Silva'
+    };
+  }
   render(){
+    const name = this.state.name;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            {name}
           </p>
           <a
             className="App-link"
