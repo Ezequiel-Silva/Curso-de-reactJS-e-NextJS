@@ -7,11 +7,17 @@ class App extends Component{
     super(props);
     this.handlePClick = this.handlePClick.bind(this);
     this.state = {
-      name: 'Ezequiel da Silva'
+      name: 'Ezequiel da Silva',
+      counter: 0
     };
   }
   handlePClick(){
     this.setState({ name: 'Neymar Jr.' });
+  }
+  handleAClick = (event) => {
+    event.preventDefault();
+    const { counter } = this.state;
+    this.setState({ counter: counter + 1 });
   }
   render(){
     const { name } = this.state;
@@ -23,6 +29,7 @@ class App extends Component{
             {name}
           </p>
           <a
+            onClick={this.handleAClick}
             className="App-link"
             href="https://reactjs.org"
             target="_blank"
