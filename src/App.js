@@ -9,13 +9,16 @@ class App extends Component{
       name: 'Ezequiel da Silva'
     };
   }
+  handlePClick(){
+    console.log('<p> clicado')
+  }
   render(){
     const { name } = this.state;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p onClick={() => console.log('<p> clicado')}>
+          <p onClick={this.handlePClick}>
             {name}
           </p>
           <a
