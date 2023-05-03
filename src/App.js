@@ -11,8 +11,7 @@ class App extends Component{
     };
   }
   handlePClick(){
-    const { name } = this.state;
-    console.log(`<p> clicado ${name}`);
+    this.setState({ name: 'Neymar Jr.' });
   }
   render(){
     const { name } = this.state;
