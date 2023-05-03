@@ -20,13 +20,13 @@ class App extends Component{
     this.setState({ counter: counter + 1 });
   }
   render(){
-    const { name } = this.state;
+    const { name, counter } = this.state;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p onClick={this.handlePClick}>
-            {name}
+            {name} {counter}
           </p>
           <a
             onClick={this.handleAClick}
