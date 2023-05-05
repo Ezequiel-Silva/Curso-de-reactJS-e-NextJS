@@ -6,7 +6,9 @@ class App extends Component{
     posts: []
   };
   componentDidMount(){
-    //
+    fetch('http://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(posts => this.setState({ posts }))
   }
   render(){
     const { posts } = this.state;
