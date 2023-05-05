@@ -20,20 +20,27 @@ class App extends Component{
         title: 'O título 3',
         body: 'O corpo 3'
       }
-    ]
+    ],
   };
+  timeoutUpdate = null;
   componentDidMount(){
     this.handleTimeout();
+  }
+  componentDidUpdate(){
+    this.handleTimeout();
+  }
+  componentWillUnmount(){
+    clearTimeout(this.timeoutUpdate);
   }
   handleTimeout = () => {
     const { posts, counter } = this.state;
     posts[0].title = 'O título mudou';
-    setTimeout(() => {
+    this.timeoutUpdate = setTimeout(() => {
       this.setState({
         posts,
         counter: counter + 1
       });
-    }, 2000);
+    }, 3000);
   }
   render(){
     const { posts, counter } = this.state;
