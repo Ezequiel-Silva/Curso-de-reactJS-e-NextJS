@@ -6,9 +6,13 @@ class App extends Component{
     posts: []
   };
   componentDidMount(){
-    fetch('http://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then(posts => this.setState({ posts }))
+    this.loadPosts();
+  }
+  loadPosts = async () => {
+    const postsResponse = fetch('http://jsonplaceholder.typicode.com/posts');
+    const [posts] = await Promise.all([postsResponse]);
+    const postsJson = await posts.json();
+    this.setState({ posts: postsJson });
   }
   render(){
     const { posts } = this.state;
