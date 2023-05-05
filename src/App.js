@@ -23,6 +23,9 @@ class App extends Component{
     ]
   };
   componentDidMount(){
+    this.handleTimeout();
+  }
+  handleTimeout = () => {
     const { posts, counter } = this.state;
     posts[0].title = 'O título mudou';
     setTimeout(() => {
