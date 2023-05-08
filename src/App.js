@@ -10,8 +10,10 @@ class App extends Component{
   }
   loadPosts = async () => {
     const postsResponse = fetch('http://jsonplaceholder.typicode.com/posts');
-    const [posts] = await Promise.all([postsResponse]);
+    const photosResponse = fetch('http://jsonplaceholder.typicode.com/posts');
+    const [posts,photos] = await Promise.all([postsResponse,photosResponse]);
     const postsJson = await posts.json();
+    const photosJson = await photos.json();
     this.setState({ posts: postsJson });
   }
   render(){
