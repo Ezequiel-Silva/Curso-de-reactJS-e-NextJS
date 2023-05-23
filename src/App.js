@@ -26,7 +26,12 @@ class App extends Component{
       <section className="container">
         <div className="posts">
           {posts.map(post => (
-            <PostCard/>
+            <PostCard
+              id={post.id}
+              title={post.title}
+              body={post.body}
+              cover={post.cover} 
+            />
           ))}
         </div>
       </section>
