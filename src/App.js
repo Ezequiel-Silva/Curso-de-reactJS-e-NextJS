@@ -2,7 +2,6 @@ import { Component } from 'react';
 
 import './App.css';
 
-import { PostCard } from './components/PostCard';
 import { loadPosts } from './utils/load-posts';
 
 class App extends Component{
