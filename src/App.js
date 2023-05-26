@@ -3,6 +3,7 @@ import { Component } from 'react';
 import './App.css';
 
 import { loadPosts } from './utils/load-posts';
+import { Posts } from './components/Posts';
 
 class App extends Component{
   state = {
@@ -19,7 +20,7 @@ class App extends Component{
     const { posts } = this.state;
     return (
       <section className="container">
-        
+        <Posts posts={posts}/>
       </section>
     );
   }
