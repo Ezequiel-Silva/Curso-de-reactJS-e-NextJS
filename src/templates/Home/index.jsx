@@ -7,14 +7,21 @@ import { Posts } from '../../components/Posts';
 
 class Home extends Component{
   state = {
-    posts: []
+    posts: [],
+    allPosts: [],
+    page: 0,
+    postsPerPage: 2
   };
   async componentDidMount(){
     await this.loadPosts();
   }
   loadPosts = async () => {
+    const { page, postsPerPage } = this.state;
     const postsAndPhotos = await loadPosts();
-    this.setState({ posts: postsAndPhotos });
+    this.setState({ 
+      posts: postsAndPhotos.slice(page, postsPerPage),
+      allPosts: postsAndPhotos, 
+    });
   }
   render(){
     const { posts } = this.state;
