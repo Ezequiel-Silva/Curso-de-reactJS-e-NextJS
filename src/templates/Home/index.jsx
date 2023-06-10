@@ -4,6 +4,7 @@ import './styled.css';
 
 import { loadPosts } from '../../utils/load-posts';
 import { Posts } from '../../components/Posts';
+import { Button } from '../../components/Button';
 
 class Home extends Component{
   state = {
@@ -23,11 +24,16 @@ class Home extends Component{
       allPosts: postsAndPhotos, 
     });
   }
+  loadMorePosts = () => {console.log('Load more posts chamado!!')}
   render(){
     const { posts } = this.state;
     return (
       <section className="container">
         <Posts posts={posts}/>
+        <Button 
+          text='Load more posts'
+          onClick={this.loadMorePosts}
+        />
       </section>
     );
   }
