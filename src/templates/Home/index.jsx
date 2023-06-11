@@ -11,7 +11,7 @@ class Home extends Component{
     posts: [],
     allPosts: [],
     page: 0,
-    postsPerPage: 99
+    postsPerPage: 10
   };
   async componentDidMount(){
     await this.loadPosts();
