@@ -11,7 +11,7 @@ class Home extends Component{
     posts: [],
     allPosts: [],
     page: 0,
-    postsPerPage: 2
+    postsPerPage: 99
   };
   async componentDidMount(){
     await this.loadPosts();
@@ -38,7 +38,8 @@ class Home extends Component{
     this.setState({ posts, page: nextPage });
   }
   render(){
-    const { posts } = this.state;
+    const { posts, page, postsPerPage, allPosts } = this.state;
+    const noMorePosts = page + postsPerPage >= allPosts.length;
     return (
       <section className="container">
         <Posts posts={posts}/>
@@ -46,6 +47,7 @@ class Home extends Component{
           <Button 
             text='Load more posts'
             onClick={this.loadMorePosts}
+            disabled={noMorePosts}
           />
         </div>
       </section>
