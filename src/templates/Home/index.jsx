@@ -24,7 +24,19 @@ class Home extends Component{
       allPosts: postsAndPhotos, 
     });
   }
-  loadMorePosts = () => {console.log('Load more posts chamado!!')}
+  loadMorePosts = () => {
+    const {
+      page,
+      postsPerPage,
+      allPosts,
+      posts
+    } = this.state;
+    const nextPage = page + postsPerPage;
+    const nextPosts = allPosts.slice(nextPage, nextPage + postsPerPage);
+    posts.push(...nextPosts);
+    
+    this.setState({ posts, page: nextPage });
+  }
   render(){
     const { posts } = this.state;
     return (
