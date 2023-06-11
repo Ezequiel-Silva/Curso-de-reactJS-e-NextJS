@@ -42,10 +42,12 @@ class Home extends Component{
     return (
       <section className="container">
         <Posts posts={posts}/>
-        <Button 
-          text='Load more posts'
-          onClick={this.loadMorePosts}
-        />
+        <div className="button-container">
+          <Button 
+            text='Load more posts'
+            onClick={this.loadMorePosts}
+          />
+        </div>
       </section>
     );
   }
