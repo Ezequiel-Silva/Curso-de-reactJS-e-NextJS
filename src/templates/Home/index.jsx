@@ -11,7 +11,8 @@ class Home extends Component{
     posts: [],
     allPosts: [],
     page: 0,
-    postsPerPage: 10
+    postsPerPage: 10,
+    searchValue: ""
   };
   async componentDidMount(){
     await this.loadPosts();
@@ -37,16 +38,17 @@ class Home extends Component{
     
     this.setState({ posts, page: nextPage });
   }
+  handleChange = (e) => {
+    const { value } = e.target;
+    this.setState({ searchValue: value })
+  }
   render(){
     const { posts, page, postsPerPage, allPosts } = this.state;
     const noMorePosts = page + postsPerPage >= allPosts.length;
     return (
       <section className="container">
         <input
-          onChange={(e) => {
-            console.log('Target: ',e.target);
-            console.log('Value: ',e.target.value);
-          }} 
+          onChange={this.handleChange} 
           type='search' 
         /><br/><br/><br/>
         <Posts posts={posts}/>
