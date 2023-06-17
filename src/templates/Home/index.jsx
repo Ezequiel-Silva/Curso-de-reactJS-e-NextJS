@@ -43,12 +43,13 @@ class Home extends Component{
     this.setState({ searchValue: value })
   }
   render(){
-    const { posts, page, postsPerPage, allPosts } = this.state;
+    const { posts, page, postsPerPage, allPosts, searchValue } = this.state;
     const noMorePosts = page + postsPerPage >= allPosts.length;
     return (
       <section className="container">
         <input
           onChange={this.handleChange} 
+          value={searchValue}
           type='search' 
         /><br/><br/><br/>
         <Posts posts={posts}/>
