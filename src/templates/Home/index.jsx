@@ -42,6 +42,13 @@ class Home extends Component{
     const noMorePosts = page + postsPerPage >= allPosts.length;
     return (
       <section className="container">
+        <input
+          onChange={(e) => {
+            console.log('Target: ',e.target);
+            console.log('Value: ',e.target.value);
+          }} 
+          type='search' 
+        /><br/><br/><br/>
         <Posts posts={posts}/>
         <div className="button-container">
           <Button 
