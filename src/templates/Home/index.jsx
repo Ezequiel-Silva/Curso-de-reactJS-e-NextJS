@@ -47,6 +47,7 @@ class Home extends Component{
     const noMorePosts = page + postsPerPage >= allPosts.length;
     return (
       <section className="container">
+        <h1>Search value: {searchValue}</h1><br/><br/>
         <input
           onChange={this.handleChange} 
           value={searchValue}
