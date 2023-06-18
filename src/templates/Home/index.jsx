@@ -49,7 +49,7 @@ class Home extends Component{
       <section className="container">
         {!!searchValue && (
           <>
-            <h1>Search value: {searchValue} {false && false}</h1><br/><br/>
+            <h1>Search value: {searchValue}</h1><br/><br/>
           </>
         )}
         <input
@@ -59,11 +59,13 @@ class Home extends Component{
         /><br/><br/><br/>
         <Posts posts={posts}/>
         <div className="button-container">
-          <Button 
-            text='Load more posts'
-            onClick={this.loadMorePosts}
-            disabled={noMorePosts}
-          />
+          {!searchValue && (
+            <Button 
+              text='Load more posts'
+              onClick={this.loadMorePosts}
+              disabled={noMorePosts}
+            />
+          )}          
         </div>
       </section>
     );
