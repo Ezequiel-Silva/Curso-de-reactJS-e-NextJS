@@ -49,7 +49,7 @@ class Home extends Component{
     allPosts.filter(post => {
       return post.title.toLowerCase().includes(searchValue.toLowerCase());
     }) 
-    : allPosts;
+    : posts;
     return (
       <section className="container">
         {!!searchValue && (
@@ -62,7 +62,12 @@ class Home extends Component{
           value={searchValue}
           type='search' 
         /><br/><br/><br/>
-        <Posts posts={filteredPosts}/>
+        {filteredPosts.length > 0 && (
+          <Posts posts={filteredPosts}/>
+        )}
+        {filteredPosts.length === 0 && (
+          <p>Não existem mais posts 🥲</p>
+        )}
         <div className="button-container">
           {!searchValue && (
             <Button 
